@@ -1,0 +1,5 @@
+test,statistic,p-value,conclusion
+Breusch-Pagan,0.0018003576783837127,0.966155417544121,No evidence of heterocedasticity
+Breusch-Godfrey,3.0722064477374715,0.6888546149519605,No evidence of autocorrelation
+Jarque-Bera,336.5534146771733,8.28618394558677e-74,Residuals are not normally distributed
+Ramsey RESET,0.4620734528260398,0.49678320519529423,No evidence of specification problems
