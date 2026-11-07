@@ -1,0 +1,25 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:          Ret_LREN3_pct   R-squared:                       0.390
+Model:                            OLS   Adj. R-squared:                  0.389
+Method:                 Least Squares   F-statistic:                     606.8
+Date:                Sat, 07 Nov 2026   Prob (F-statistic):          1.97e-109
+Time:                        00:42:38   Log-Likelihood:                -2702.0
+No. Observations:                1245   AIC:                             5408.
+Df Residuals:                    1243   BIC:                             5418.
+Df Model:                           1                                         
+Covariance Type:                  HAC                                         
+================================================================================
+                   coef    std err          z      P>|z|      [0.025      0.975]
+--------------------------------------------------------------------------------
+const           -0.0987      0.057     -1.730      0.084      -0.211       0.013
+Ret_IBOV_pct     1.5151      0.062     24.633      0.000       1.395       1.636
+==============================================================================
+Omnibus:                       85.515   Durbin-Watson:                   2.049
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              336.553
+Skew:                          -0.190   Prob(JB):                     8.29e-74
+Kurtosis:                       5.519   Cond. No.                         1.12
+==============================================================================
+
+Notes:
+[1] Standard Errors are heteroscedasticity and autocorrelation robust (HAC) using 5 lags and without small sample correction
