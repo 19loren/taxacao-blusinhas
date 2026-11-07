@@ -78,8 +78,8 @@ def calculate_daily_statistics(returns):
                 series.std() * np.sqrt(252)
             ),
             "cumulative return (%)": (
-                ((1 + series / 100).prod() - 1) * 100
-            ),
+                np.exp(series.sum() / 100) - 1
+            ) * 100
         }
 
     return pd.DataFrame(statistics)
@@ -89,23 +89,15 @@ def calculate_monthly_returns(returns):
 
     data = returns.copy()
 
-    data["Month"] = (
-        data["Data"].dt.to_period("M")
-    )
+    data["Month"] = data["Data"].dt.to_period("M")
 
-    monthly = data.groupby("Month").agg(
-        Ret_LREN3_pct=(
-            "Ret_LREN3_pct",
-            lambda x: ((1 + x / 100).prod() - 1) * 100,
-        ),
-        Ret_IBOV_pct=(
-            "Ret_IBOV_pct",
-            lambda x: ((1 + x / 100).prod() - 1) * 100,
-        ),
-    )
+    monthly = data.groupby("Month")[
+        ["Ret_LREN3_pct", "Ret_IBOV_pct"]
+    ].sum()
+
+    monthly = (np.exp(monthly / 100) - 1) * 100
 
     monthly.index = monthly.index.to_timestamp()
-
     monthly.index.name = "Data"
 
     return monthly.reset_index()

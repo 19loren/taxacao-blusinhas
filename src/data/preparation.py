@@ -12,7 +12,7 @@ def load_financial_data():
 
     if not file_path.exists():
         raise FileNotFoundError(
-            f"Dpythonataset not found: {file_path}"
+            f"Dataset not found: {file_path}"
             )
     prices = pd.read_excel(
         file_path,
